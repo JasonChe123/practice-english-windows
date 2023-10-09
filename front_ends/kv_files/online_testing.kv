@@ -1,0 +1,54 @@
+<OnlineTesting>:
+    canvas.before:
+        Color:
+            rgb: 0.5, 0.5, 0.5
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: f'{page_bg_dir}/online_testing.jpg'
+
+    MainVerticalBox:
+        size: root.size
+
+        GoBackButton:
+            on_press: root.go_back()
+
+        ScrollView:
+            size_hint: (1.0, 1.0)
+
+            ScrollableVerticalBox:
+                # ---------------------------------------------------------------------------------
+                HeaderLabel:
+                    text: 'Online Testing'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        cols: 4
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/cambridge_testing.jpg'
+                            on_press:
+                                webbrowser.open('https://www.cambridgeenglish.org/test-your-english/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/british_council_testing.jpg'
+                            on_press:
+                                webbrowser.open('https://learnenglish.britishcouncil.org/english-levels/online-english-level-test')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/efset.jpg'
+                            on_press:
+                                webbrowser.open('https://www.efset.org/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/preply.jpg'
+                            on_press:
+                                webbrowser.open('https://preply.com/en/language-tests/english')
+
+                        PhotoLabel:
+                            text: 'Cambridge'
+                        PhotoLabel:
+                            text: 'British Council'
+                        PhotoLabel:
+                            text: 'EFSET'
+                        PhotoLabel:
+                            text: 'Preply'

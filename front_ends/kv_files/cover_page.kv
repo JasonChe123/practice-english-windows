@@ -1,0 +1,53 @@
+<CoverPage>:
+    ScrollView:
+        pos: root.pos
+        size: root.size
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: f'{page_bg_dir}/cover_page.jpg'
+
+        BoxLayout:
+            orientation: 'vertical'
+            height: self.minimum_height
+            size_hint: (1.0, None)
+            spacing: 20
+            padding: 20
+
+            CoverPageButton:
+                text: 'Add Vocabulary'
+                background_normal: f'{cover_page_btn_bg_dir}/add_vocab.jpg'
+                on_press: root.go_to_add_vocab(self)
+
+            CoverPageButton:
+                text: 'Practice Vocabulary'
+                background_normal: f'{cover_page_btn_bg_dir}/practice_vocab.jpg'
+                on_press: root.go_to_practice_vocab(self)
+
+            CoverPageButton:
+                text: 'Read News'
+                background_normal: f'{cover_page_btn_bg_dir}/read_news.jpg'
+                on_press: root.go_to_read_news()
+
+            CoverPageButton:
+                text: 'Learn Grammar'
+                background_normal: f'{cover_page_btn_bg_dir}/learn_grammar.jpg'
+                on_press: root.go_to_learn_grammar()
+
+            CoverPageButton:
+                text: 'Practice Listening'
+                background_normal: f'{cover_page_btn_bg_dir}/practice_listening.jpg'
+                on_press: root.go_to_practice_listening()
+
+            CoverPageButton:
+                text: 'Online Testing'
+                background_normal: f'{cover_page_btn_bg_dir}/online_testing.jpg'
+                on_press: root.go_to_online_testing()
+
+            CoverPageButton:
+                text: 'Database'
+                background_normal: f'{cover_page_btn_bg_dir}/database.jpg'
+                on_press: root.go_to_database()

@@ -1,0 +1,71 @@
+<Preview>:
+    photo: photo
+    ti_word: ti_word
+    ti_definition: ti_def
+    ti_example: ti_exp
+    speaker: speaker
+
+    canvas:
+        Color:
+            rgb: 0.1, 0.2, 0.4
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size
+        spacing: 10
+        padding: 20
+
+        GoBackButton:
+            on_press: root.go_back()
+
+        ImageButton:
+            id: photo
+            size_hint_y: 0.4
+            on_press: root.change_photo(self)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            height: 50
+            size_hint: (1.0, None)
+
+            TitleLabel:
+                text: 'word(s)'
+
+            Button:
+                id: speaker
+                background_normal: f'{button_icon_dir}/speaker_normal.png'
+                background_down: f'{button_icon_dir}/speaker_down.png'
+                border: (0, 0, 0, 0)
+                size: (40, 40)
+                size_hint: (None, None)
+                on_press: root.set_sound()
+
+        DisplayTextInput:
+            id: ti_word
+            text: ""
+            height: 35
+            size_hint_y: None
+
+        TitleLabel:
+            text: 'definition'
+
+        DisplayTextInput:
+            id: ti_def
+            text: ""
+
+        TitleLabel:
+            text: 'example'
+
+        DisplayTextInput:
+            id: ti_exp
+            text: ""
+
+        RoundedButton:
+            id: btn_confirm
+            text: "confirm adding"
+            height: 35
+            size_hint: (1.0, None)
+            on_press: root.confirm_adding(self)

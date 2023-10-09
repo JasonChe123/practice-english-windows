@@ -1,0 +1,211 @@
+<AddVocab>:
+    lbl_word: label_word
+    lbl_word_tenses: label_word_tenses
+    lbl_word_func: label_word_function
+    lbl_word_added: label_word_added
+
+    ti_def: text_input_def
+    ti_example: text_input_example
+    ti_search: text_input_search
+    ti_translation: text_input_translation
+
+    btn_def_next: button_definition_next
+    btn_def_prev: button_definition_previous
+    btn_speaker: button_speaker
+    btn_usage_prev: button_usage_previous
+    btn_usage_next: button_usage_next
+    btn_exp_next: button_example_next
+    btn_exp_prev: button_example_previous
+
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: f'{page_bg_dir}/add_vocab.jpg'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size
+        spacing: 0
+        padding: 20
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: 50
+
+            GoBackButton:
+                on_press: root.go_back()
+
+            Label:
+                text: 'Info Extracted from Cambridge Online Dictionary'
+                text_size: self.size
+                halign: 'right'
+                valign: 'middle'
+                pos_hint_x: 1
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size: (0, 40)
+            size_hint: (1.0, None)
+
+            TitleLabel:
+                text: "Definition"
+
+            PreviousButton:
+                id: button_definition_previous
+                on_press: root.definition_previous(self)
+
+            NextButton:
+                id: button_definition_next
+                on_press: root.definition_next(self)
+
+            Button:
+                id: button_speaker
+                background_normal: f'{button_icon_dir}/speaker_normal.png'
+                background_down: f'{button_icon_dir}/speaker_down.png'
+                border: (0, 0, 0, 0)
+                size: (40, 40)
+                size_hint: (None, None)
+                on_press: root.play_sound(self)
+
+            Label:
+                id: label_word_added
+                text: "0 word added"
+                text_size: self.size
+                halign: 'right'
+                valign: 'middle'
+                pos_hint_x: 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            size: (0, 130)
+            size_hint: (1.0, None)
+            spacing: 5
+            padding: (0, 10, 0, 0)
+
+            VariableLabel:
+                id: label_word
+
+            VariableLabel:
+                id: label_word_tenses
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size: (0, 40)
+                size_hint: (1.0, None)
+
+                TitleLabel:
+                    text: "Usage"
+
+                PreviousButton:
+                    id: button_usage_previous
+                    on_press: root.usage_previous(self)
+
+                NextButton:
+                    id: button_usage_next
+                    on_press: root.usage_next(self)
+
+            VariableLabel:
+                id: label_word_function
+                size: (0, 40)
+
+
+        DisplayTextInput:
+            id: text_input_def
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size: (0, 40)
+            size_hint: (1.0, None)
+
+            TitleLabel:
+                text: "Example"
+
+            PreviousButton:
+                id: button_example_previous
+                on_press: root.example_previous(self)
+
+            NextButton:
+                id: button_example_next
+                on_press: root.example_next(self)
+
+        DisplayTextInput:
+            id: text_input_example
+
+        TitleLabel:
+            text: "Chinese Translation"
+            size_hint: (1.0, None)
+
+        DisplayTextInput:
+            id: text_input_translation
+            font_size: 20
+            font_name: f'{base_dir}/library/fonts/Source Han Sans CN Light.otf'
+            height: 70
+            size_hint: (1.0, None)
+
+        ScrollView:
+            size: (0, 100)
+            size_hint: (1.0, None)
+            padding: 10
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: (None, None)
+                width: self.minimum_width
+                spacing: 10
+                padding: 10
+
+                IconBox:
+                    IconButton:
+                        background_normal: f'{button_icon_dir}/dictionary_normal.png'
+                        background_down: f'{button_icon_dir}/dictionary_down.png'
+                        on_press: root.check_dictionary(self)
+
+                    Label:
+                        text: 'dictionary'
+
+                IconBox:
+                    IconButton:
+                        background_normal: f'{button_icon_dir}/pictures_normal.png'
+                        background_down: f'{button_icon_dir}/pictures_down.png'
+                        on_press: root.add_images(self)
+
+                    Label:
+                        text: 'photo'
+
+                IconBox:
+                    IconButton:
+                        background_normal: f'{button_icon_dir}/google_search_normal.png'
+                        background_down: f'{button_icon_dir}/google_search_down.png'
+                        on_press: root.google_search()
+
+                    Label:
+                        text: 'search'
+
+                IconBox:
+                    IconButton:
+                        background_normal: f'{button_icon_dir}/update_database_normal.png'
+                        background_down: f'{button_icon_dir}/update_database_down.png'
+                        on_press: root.update_database(self)
+
+                    Label:
+                        text: 'add word'
+
+        BoxLayout:
+            padding: 10
+            size: (0, 65)
+            size_hint: (1.0, None)
+
+            RoundedTextInput:
+                id: text_input_search
+                hint_text: "Please type any word(s) you want to search."
+                font_size: 18
+                height: 45
+                size_hint: (1.0, None)
+                multiline: False
+                padding: 10
+                on_text_validate: root.check_dictionary(self)
+                text_validate_unfocus: False

@@ -1,0 +1,89 @@
+<PracticeListening>:
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: f'{page_bg_dir}/practice_listening.jpg'
+
+    MainVerticalBox:
+        size: root.size
+
+        GoBackButton:
+            on_press: root.go_back()
+
+        ScrollView:
+            size_hint: (1.0, 1.0)
+
+            ScrollableVerticalBox:
+                # ---------------------------------------------------------------------------------
+                HeaderLabel:
+                    text: 'Famous Website'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        cols: 4
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/british_council.jpg'
+                            on_press:
+                                webbrowser.open('https://learnenglish.britishcouncil.org/skills/listening')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/bbc_listening.jpg'
+                            on_press:
+                                webbrowser.open('https://www.bbc.co.uk/teach/school-radio/eyfs-listening-skills/zbc4y9q')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/oxford_listening.jpg'
+                            on_press:
+                                webbrowser.open('https://www.oxfordonlineenglish.com/free-english-listening-lessons')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/cambridge_listening.jpg'
+                            on_press:
+                                webbrowser.open('https://www.cambridgeenglish.org/learning-english/activities-for-learners/?skill=listening')
+
+                        PhotoLabel:
+                            text: 'British Council'
+                        PhotoLabel:
+                            text: 'BBC Listening Skills'
+                        PhotoLabel:
+                            text: 'Oxford Online Listening'
+                        PhotoLabel:
+                            text: 'Cambridge'
+
+                HeaderLabel:
+                    text: 'YouTube Channel'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        cols: 4
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/real_english_with_real_teachers.jpg'
+                            on_press:
+                                webbrowser.open('https://www.youtube.com/@realenglishwithrealteacher4777')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/english_like_a_native.jpg'
+                            on_press:
+                                webbrowser.open('https://www.youtube.com/@EnglishLikeANative')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/learn_english_with_tv_series.jpg'
+                            on_press:
+                                webbrowser.open('https://www.youtube.com/@LearnEnglishWithTVSeries')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/etj_english.jpg'
+                            on_press:
+                                webbrowser.open('https://www.youtube.com/@ETJEnglish')
+
+                        PhotoLabel:
+                            text: 'REWRT'
+                        PhotoLabel:
+                            text: 'English Like A Native'
+                        PhotoLabel:
+                            text: 'Learn English With TV Series'
+                        PhotoLabel:
+                            text: 'ETJ English'

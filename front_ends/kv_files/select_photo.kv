@@ -1,0 +1,54 @@
+<SelectPhoto>:
+    photo_1: photo_1
+    photo_2: photo_2
+
+    canvas:
+        Color:
+            rgb: 0.1, 0.2, 0.4
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size
+        spacing: 10
+        padding: 20
+
+        BoxLayout:
+            orientation: 'horizontal'
+            height: 50
+            size_hint: (1.0, None)
+
+            GoBackButton:
+                on_press: root.go_back()
+
+            Label:
+                text: "photos extracted from iStockPhoto\n( photos do not exactly mean the word(s) )"
+                halign: 'right'
+                valign: 'middle'
+                pos_hint_x: 1.0
+                text_size: self.size
+
+        ImageButton:
+            id: photo_1
+            anim_delay: 0.05
+            on_press: root.add_photo(self)
+
+        ImageButton:
+            id: photo_2
+            anim_delay: 0.05
+            on_press: root.add_photo(self)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.2
+            spacing: 10
+
+            RoundedButton:
+                text: '<< previous'
+                on_press: root.previous_photos(self)
+
+            RoundedButton:
+                text: 'next >>'
+                on_press: root.next_photos(self)

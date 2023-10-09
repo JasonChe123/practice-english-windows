@@ -1,0 +1,55 @@
+<LearnGrammar>:
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: f'{page_bg_dir}/learn_grammar.jpg'
+
+    MainVerticalBox:
+        size: root.size
+
+        GoBackButton:
+            on_press: root.go_back()
+
+        ScrollView:
+            size_hint: (1.0, 1.0)
+
+            ScrollableVerticalBox:
+
+                # ---------------------------------------------------------------------------------
+                HeaderLabel:
+                    text: 'Learn Grammar'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        cols: 4
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/british_council.jpg'
+                            on_press:
+                                webbrowser.open('https://learnenglish.britishcouncil.org/grammar')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/bbc_grammar.jpg'
+                            on_press:
+                                webbrowser.open('https://www.bbc.com/learningenglish/english/intermediate-grammar')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/oxford_grammar.jpg'
+                            on_press:
+                                webbrowser.open('https://www.oxfordonlineenglish.com/free-english-grammar-lessons')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/cambridge_grammar.jpg'
+                            on_press:
+                                webbrowser.open('https://www.cambridgeenglish.org/learning-english/activities-for-learners/?skill=grammar')
+
+                        PhotoLabel:
+                            text: 'British Council'
+                        PhotoLabel:
+                            text: 'BBC 6 minutes Grammar'
+                        PhotoLabel:
+                            text: 'Oxford Online Grammar'
+                        PhotoLabel:
+                            text: 'Cambridge'

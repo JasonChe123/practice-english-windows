@@ -1,0 +1,101 @@
+<PracticeVocab>:
+    image: image
+    lbl_def: lbl_definition
+    lbl_ex: lbl_example
+    lbl_words_tested: lbl_words_tested
+    lbl_words_correct: lbl_words_correct
+    lbl_percent_correct: lbl_percent_correct
+    ti_answer: ti_answer
+
+    canvas.before:
+        Color:
+            rgb: 0.5, 0.5, 0.5
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: f'{page_bg_dir}/practice_vocab.jpg'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size
+        spacing: 0
+        padding: 20
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, None)
+            height: 50
+
+            GoBackButton:
+                on_press: root.go_back()
+
+        Image:
+            id: image
+            source: f"{base_dir}/library/images/no_image.png"
+            size_hint: (1.0, None)
+            height: 300
+            padding: 10
+            allow_stretch: True
+
+        TitleLabel:
+            text: "Description:"
+
+        VariableLabel:
+            id: lbl_definition
+            text: ""
+            size_hint_y: 0.4
+            valign: 'top'
+
+        TitleLabel:
+            text: "Example:"
+
+        VariableLabel:
+            id: lbl_example
+            text: ""
+            size_hint_y: 0.4
+            valign: 'top'
+
+        BoxLayout:
+            padding: 10
+            size: (0, 65)
+            size_hint: (1.0, None)
+
+            RoundedTextInput:
+                id: ti_answer
+                hint_text: "What is the word(s)?"
+                font_size: 18
+                height: 45
+                size_hint: (1.0, None)
+                multiline: False
+                padding: 10
+                text_validate_unfocus: False
+                on_text_validate: root.check_answer(self)
+
+        VariableLabel:
+            id: lbl_words_tested
+            text: "0 word tested"
+            height: 30
+
+        VariableLabel:
+            id: lbl_words_correct
+            text: "0 word correct"
+            height: 30
+
+        VariableLabel:
+            id: lbl_percent_correct
+            text: "0% correct"
+            height: 30
+
+        Button:
+            text: 'Start'
+            height: 40
+            size_hint_y: None
+            background_color: (0, 0, 0, 0)
+            canvas.before:
+                Color:
+                    rgba: (0.4, 0.9, 0.2, 0.9)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]
+            on_press: root.start_practice()

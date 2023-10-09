@@ -1,0 +1,11 @@
+__pycache__/
+/__pycache__/
+.idea/
+venv/
+docs/
+site/
+project_architecture/
+.git/
+*.pyc
+mkdocs.yml
+.gitnore

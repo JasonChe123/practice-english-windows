@@ -1,0 +1,220 @@
+#:kivy 2.1.0
+#:import os os
+#:import webbrowser webbrowser
+#:set base_dir os.getcwd()
+#:set page_bg_dir os.path.join(base_dir, 'library', 'images', 'page_background')
+#:set cover_page_btn_bg_dir os.path.join(base_dir, 'library', 'images', 'cover_page_button_background')
+#:set button_icon_dir os.path.join(base_dir, 'library', 'images', 'button_icon')
+#:set btn_bg_dir os.path.join(base_dir, 'library', 'images', 'button_background')
+
+
+# layouts ---------------------------------------------------------------------
+<IconBox@BoxLayout>:
+    orientation: 'vertical'
+    size: (80, 85)
+    size_hint: (None, None)
+    spacing: 5
+
+<MainVerticalBox@BoxLayout>:
+    orientation: 'vertical'
+    spacing: 10
+    padding: 20
+
+<ScrollableVerticalBox@BoxLayout>:
+    orientation: 'vertical'
+    height: self.minimum_height
+    size_hint: (1.0, None)
+    padding: 20
+
+<HorizontalBox@BoxLayout>:
+    orientation: 'horizontal'
+    size_hint: (1, None)
+    height: 50
+
+<ScrollableGrid@GridLayout>:
+    cols: 8
+    rows: 2
+    width: self.minimum_width
+    size_hint: (None, 1.0)
+    spacing: 10
+
+# buttons ---------------------------------------------------------------------
+<CoverPageButton@Button>:
+    font_size: 40
+    text_size: self.size
+    color: (0.6, 0.4, 0.5, 1.0)
+    size: (0, 150)
+    size_hint: (1.0, None)
+    padding_x: 10
+    padding_y: 10
+
+<IconButton@Button>:
+    border: (0, 0, 0, 0)
+    size: (80, 80)
+    size_hint: (None, None)
+
+<ImageButton@ButtonBehavior+AsyncImage>:
+
+<PreviousButton@Button>:
+    background_normal: f'{button_icon_dir}/previous_normal.png'
+    background_down: f'{button_icon_dir}/previous_down.png'
+    border: (0, 0, 0, 0)
+    size: (40, 40)
+    size_hint: (None, None)
+
+<NextButton@Button>:
+    background_normal: f'{button_icon_dir}/next_normal.png'
+    background_down: f'{button_icon_dir}/next_down.png'
+    border: (0, 0, 0, 0)
+    size: (40, 40)
+    size_hint: (None, None)
+
+<RoundedButton@Button>:
+    background_color: (0, 0, 0, 0)
+    canvas.before:
+        Color:
+            rgba: (0.4, 0.9, 0.2, 0.5)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [10]
+
+<GoBackButton@Button>:
+    background_normal: f'{button_icon_dir}/back_normal.png'
+    background_down: f'{button_icon_dir}/back_down.png'
+    border: (0, 0, 0, 0)
+    size: (50, 50)
+    size_hint: (None, None)
+
+<PhotoButton@Button>:
+    size: (192, 108)
+    size_hint: (None, None)
+
+# labels ----------------------------------------------------------------------
+<TitleLabel@Label>:
+    font_size: 18
+    text_size: self.size
+    height: 40
+    size_hint: (None, None)
+    halign: 'left'
+    valign: 'middle'
+    color: (1.0, 0.4, 0.8, 1.0)
+
+<VariableLabel@Label>:
+    text: ""
+    font_size: 18
+    text_size: self.size
+    size: (0, 20)
+    size_hint: (1.0, None)
+    halign: 'left'
+    valign: 'middle'
+
+<HeaderLabel@Label>:
+    font_size: 20
+    bold: True
+    height: 40
+    text_size: self.size
+    size_hint: (1.0, None)
+
+<PhotoLabel@Label>:
+    font_size: 14
+    bold: True
+    height: 14
+    width: 192
+    text_size: self.size
+    size_hint: (None, None)
+
+# popups ----------------------------------------------------------------------
+<PopupQuestionNumberOfWords@PopUpup>
+    title: "Please Select"
+    auto_dismiss: False
+    height: 280
+    size_hint: (0.5, None)
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+
+        VariableLabel:
+            font_size: 15
+            size: (0, 45)
+            text: "How many words do you want to test?"
+            valign: 'top'
+
+        RoundedButton:
+            size: (0, 30)
+            size_hint: (1.0, None)
+            text: '30'
+            on_press: root.get_number(30)
+
+        RoundedButton:
+            size: (0, 30)
+            size_hint: (1.0, None)
+            text: '50'
+            on_press: root.get_number(50)
+
+        RoundedButton:
+            size: (0, 30)
+            size_hint: (1.0, None)
+            text: '100'
+            on_press: root.get_number(100)
+
+        RoundedButton:
+            size: (0, 30)
+            size_hint: (1.0, None)
+            text: 'cancel'
+            on_press: root.go_back(self)
+
+<PopupQuestionPracticeMethod@Popup>:
+    title: "Please Select"
+    auto_dismiss: False
+    height: 280
+    size_hint: (0.5, None)
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+
+        VariableLabel:
+            font_size: 15
+            size: (0, 60)
+            text: "The words you want to practice from the database are..."
+            valign: 'top'
+
+        RoundedButton:
+            size: (0, 30)
+            size_hint: (1.0, None)
+            text: "The latest words"
+            on_press: root.get_method('latest')
+
+        RoundedButton:
+            size: (0, 30)
+            size_hint: (1.0, None)
+            text: "All words"
+            on_press: root.get_method('all')
+
+        RoundedButton:
+            size: (0, 30)
+            size_hint: (1.0, None)
+            text: "cancel"
+            on_press: root.go_back(self)
+
+# text inputs -----------------------------------------------------------------
+<DisplayTextInput@TextInput>:
+    text: ""
+    font_size: 18
+    size_hint: (1.0, 0.1)
+    halign: 'left'
+    background_color: (0.1, 0.1, 0.3, 0.5)
+    foreground_color: (1, 1, 1, 1)
+
+<RoundedTextInput@TextInput>:
+    canvas.after:
+        Color:
+            rgba: (0.6, 0.8, 0.4, 0.3)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [10]
+    background_color: (0, 0, 0, 0)
+    foreground_color: (1, 1, 1, 1)

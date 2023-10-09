@@ -1,0 +1,221 @@
+<ReadNews>:
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: f'{page_bg_dir}/read_news.jpg'
+
+    FloatLayout:  # use FloatLayout to control the display order
+        size: root.size
+        size_hint: None, None
+
+        ScrollView:
+            height: root.height - 100
+            size_hint: (1.0, None)
+
+            ScrollableVerticalBox:
+                # ---------------------------------------------------------------------------------
+                HeaderLabel:
+                    text: 'UK'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/bbc_news.jpg'
+                            on_press:
+                                webbrowser.open('https://www.bbc.co.uk/news')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/sky_news.jpg'
+                            on_press:
+                                webbrowser.open('https://news.sky.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/daily_express.jpg'
+                            on_press:
+                                webbrowser.open('https://www.express.co.uk/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/daily_mail.jpg'
+                            on_press:
+                                webbrowser.open('https://www.dailymail.co.uk/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/daily_mirror.jpg'
+                            on_press:
+                                webbrowser.open('https://www.mirror.co.uk/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/daily_star.jpg'
+                            on_press:
+                                webbrowser.open('https://www.dailystar.co.uk/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/guardian.jpg'
+                            on_press:
+                                webbrowser.open('https://www.guardian.co.uk/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/the_sun.jpg'
+                            on_press:
+                                webbrowser.open('https://www.thesun.co.uk/')
+
+                        PhotoLabel:
+                            text: 'BBC News'
+                        PhotoLabel:
+                            text: 'Sky News'
+                        PhotoLabel:
+                            text: 'Daily Express'
+                        PhotoLabel:
+                            text: 'Daily Mail'
+                        PhotoLabel:
+                            text: 'Daily Mirror'
+                        PhotoLabel:
+                            text: 'Daily Star'
+                        PhotoLabel:
+                            text: 'Guardian'
+                        PhotoLabel:
+                            text: 'The Sun'
+
+                # ---------------------------------------------------------------------------------
+                HeaderLabel:
+                    text: 'USA'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        cols: 5
+
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/cnn_news.jpg'
+                            on_press:
+                                webbrowser.open('https://www.cnn.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/fox_news.jpg'
+                            on_press:
+                                webbrowser.open('https://www.foxnews.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/abc_news.jpg'
+                            on_press:
+                                webbrowser.open('https://abcnews.go.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/cbs_news.jpg'
+                            on_press:
+                                webbrowser.open('https://www.cbsnews.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/washington_post.jpg'
+                            on_press:
+                                webbrowser.open('https://www.washingtonpost.com/')
+
+                        PhotoLabel:
+                            text: 'CNN News'
+                        PhotoLabel:
+                            text: 'Fox News'
+                        PhotoLabel:
+                            text: 'abc News'
+                        PhotoLabel:
+                            text: 'CBS News'
+                        PhotoLabel:
+                            text: 'Washington Post'
+
+                # ---------------------------------------------------------------------------------
+                HeaderLabel:
+                    text: 'Europe'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        cols: 4
+
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/kiev_post.jpg'
+                            on_press:
+                                webbrowser.open('https://www.kyivpost.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/deutsche_welle.jpg'
+                            on_press:
+                                webbrowser.open('https://www.dw.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/france_24.jpg'
+                            on_press:
+                                webbrowser.open('https://www.france24.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/praguepost.jpg'
+                            on_press:
+                                webbrowser.open('https://www.praguepost.com/')
+
+                        PhotoLabel:
+                            text: 'Kiv Post'
+                        PhotoLabel:
+                            text: 'Deutsche Welle'
+                        PhotoLabel:
+                            text: 'France 24'
+                        PhotoLabel:
+                            text: 'Prague Post'
+
+                # ---------------------------------------------------------------------------------
+                HeaderLabel:
+                    text: 'Hong Kong'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        cols: 3
+
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/scmp.jpg'
+                            on_press:
+                                webbrowser.open('https://www.scmp.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/the_standard.jpg'
+                            on_press:
+                                webbrowser.open('https://www.thestandard.com.hk/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/wsj_asia.jpg'
+                            on_press:
+                                webbrowser.open('https://www.wsj.com/world/asia')
+
+                        PhotoLabel:
+                            text: 'South China Morning Post'
+                        PhotoLabel:
+                            text: 'The Standard'
+                        PhotoLabel:
+                            text: 'The Wall Street Journal (Asia)'
+
+                # ---------------------------------------------------------------------------------
+                HeaderLabel:
+                    text: 'India'
+
+                ScrollView:
+                    height: 150
+                    size_hint: (1.0, None)
+
+                    ScrollableGrid:
+                        cols: 3
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/deccan_chronicle.jpg'
+                            on_press:
+                                webbrowser.open('https://www.deccanchronicle.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/deccan_herald.jpg'
+                            on_press:
+                                webbrowser.open('https://www.deccanherald.com/')
+                        PhotoButton:
+                            background_normal: f'{btn_bg_dir}/the_hindu.jpg'
+                            on_press:
+                                webbrowser.open('https://www.thehindu.com/')
+
+                        PhotoLabel:
+                            text: 'Deccan Chronicle'
+                        PhotoLabel:
+                            text: 'Deccan Herald'
+                        PhotoLabel:
+                            text: 'The Hindu'
+
+        GoBackButton:
+            pos: 20, root.height - 75
+            on_press: root.go_back()
