@@ -5,7 +5,9 @@ docs/
 site/
 .git/
 /database/images/*
+!/database/images/.jpg
 /database/sounds/*
+!/database/sounds/.mp3
 *.pyc
 vocabulary.csv
 mkdocs.yml
