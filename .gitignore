@@ -1,8 +1,8 @@
 __pycache__/
 /__pycache__/
 .idea/
-images/
-sounds/
+images/*
+sounds/*
 venv/
 docs/
 site/
