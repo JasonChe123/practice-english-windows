@@ -1,11 +1,14 @@
 __pycache__/
 /__pycache__/
 .idea/
+images/
+sounds/
 venv/
 docs/
 site/
 project_architecture/
 .git/
 *.pyc
+vocabulary.csv
 mkdocs.yml
-.gitnore
+practice-english-demo.mp4

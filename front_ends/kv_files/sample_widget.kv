@@ -1,7 +1,8 @@
 #:kivy 2.1.0
 #:import os os
+#:import sys sys
 #:import webbrowser webbrowser
-#:set base_dir os.getcwd()
+#:set base_dir sys.path[0]
 #:set page_bg_dir os.path.join(base_dir, 'library', 'images', 'page_background')
 #:set cover_page_btn_bg_dir os.path.join(base_dir, 'library', 'images', 'cover_page_button_background')
 #:set button_icon_dir os.path.join(base_dir, 'library', 'images', 'button_icon')

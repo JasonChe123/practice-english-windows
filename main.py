@@ -17,8 +17,10 @@ from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.carousel import Carousel
 
+
 # load kv files
-kv_dir = os.path.join(os.getcwd(), 'front_ends', 'kv_files')
+project_dir = os.path.dirname(os.path.abspath(__file__))
+kv_dir = os.path.join(project_dir, 'front_ends', 'kv_files')
 kv_files = os.listdir(kv_dir)
 kv_files.remove('sample_widget.kv')
 Builder.load_file(os.path.join(kv_dir, 'sample_widget.kv'))
@@ -26,7 +28,7 @@ Builder.load_file(os.path.join(kv_dir, 'sample_widget.kv'))
 
 
 class PracticeEnglishApp(App):
-    working_dir = os.getcwd()
+    working_dir = project_dir
 
     def build(self):
         Window.size = (450, 800)
