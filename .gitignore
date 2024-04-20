@@ -1,13 +1,11 @@
 __pycache__/
-/__pycache__/
 .idea/
-images/*
-sounds/*
 venv/
 docs/
 site/
-project_architecture/
 .git/
+/database/images/*
+/database/sounds/*
 *.pyc
 vocabulary.csv
 mkdocs.yml
